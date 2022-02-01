@@ -1,0 +1,50 @@
+//GUIDSLTest.lga
+package samples;
+
+import chain longa.domains.guidsl.frame_chain;
+import chain longa.domains.guidsl.button_chain;
+import chain longa.domains.guidsl.label_chain;
+import chain longa.domains.guidsl.panel_chain;
+import chain longa.domains.guidsl.textField_chain;
+import java.awt.Font;
+import javax.swing.*;
+
+class GUIDSLTest {
+
+     void main() {
+         System.out.println("JFrame GUI DSL language");
+
+         loginWindow();
+       //  frame1();
+     }
+
+    void loginWindow()
+    {
+        Font font1 = new Font("Georgia", Font.PLAIN, 16);
+        JFrame jframe =
+        frame
+            title "Login Window"
+            size 350 200
+            component (
+                    panel noneLayout
+                    component (label "User:" bounds 10 20 80 25 font font1)
+                        component (textField bounds 100 20 165 25)
+                        component (label "Password:" bounds 10 50 80 25)
+                        component (textField bounds 100 50 165 25)
+                        component (button "Login" bounds 90 90 80 25)
+            )
+        ;
+        System.out.println(jframe.getTitle());
+    }
+
+    void frame1()
+    {
+        JFrame jframe = frame
+            title "Test GUI DSL"
+            bounds 500 500 1024 768
+            component (label "Hello Label" bounds 0 0 50 15)
+            component (button "Hello Button" bounds 30 30 30 15)
+            pack
+        ;
+    }
+}
