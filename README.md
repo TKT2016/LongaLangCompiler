@@ -1,22 +1,28 @@
 # LongaLangCompiler
 Longa 是我发明的一种长链表达式调用技术。  
 Longa项目是我在自己开发的简单java编译器上的基础上插入Long编译技术。  
+## Longa优点
+可以很好地模拟SQL语句  
+可以作为通用DSL引擎  
+可以模拟自然语言编程
 
 ## 运行环境
-JDK 1.8
+JDK 1.8  
 IntelliJ IDEA
 
-##运行方法
+## 运行方法
 打开IntelliJ IDEA，运行src/editor.TinyEditor类，  
 点击工具栏按钮"Open Longa Source",选择samples下的 HelloWorld.lga，  
 点击"Complie Run Longa"，IntelliJ IDEA的输出窗口会运行输出"Hello World...".  
 
-##例子说明
+## 例子说明
 目录samples下有三个例子  
 Longa暂时是为了研究演示,没有关键字static和public，编辑器会在编译成功后自动调用void main()方法  
 HelloWorld.lga 最简单的HelloWorld,和java很接近  
-GUIDSLTest.lga 演示Longa是怎样编写java swing图形程序的  
-SQLDomainTest.lga 演示怎样用Longa连接mysql,删除创建查询表
+GUIDSLTest.lga 演示Longa编写java swing图形
+SQLDomainTest.lga 演示怎样用Longa连接mysql,删除创建查询表,修改正确的数据库连接信息可以实际运行
+
+![](https://raw.githubusercontent.com/TKT2016/LongaLangCompiler/main/resources/SQLDemo.png)
 
 删除创建查询表
 ```java
