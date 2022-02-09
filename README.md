@@ -1,10 +1,19 @@
 # LongaLangCompiler
 Longa 是我发明的一种长链表达式调用技术。  
-Longa项目是我在自己开发的简单java编译器上的基础上插入Long编译技术。  
+Longa项目是我在自己开发的简化版java语言的编译器上的基础上插入Longa编译技术。   
+
 ## Longa优点
 可以很好地模拟SQL语句  
 可以作为通用DSL引擎  
-可以模拟自然语言编程
+可以模拟自然语言编程  
+
+目前实现的SQL方面距离标准的SQL脚本已经非常解决，在当前的市面上找不到如此接近的。  
+未来大家很可能在java程序直接编写运行SQL语句，不需要拼接字符串了；同时大家可以很方便的开发自己的DSL语言。
+
+我正在推广这一个神奇的技术，希望大家这样支持我: 
+1. 给项目加星
+2. 向朋友同事宣传推荐
+3. 我研究需要大量精力和一些物质支持,如果您觉得值，请打开收款码给我捐点款，1到20元都可以
 
 ## 运行环境
 JDK 1.8  
@@ -13,7 +22,7 @@ IntelliJ IDEA
 ## 运行方法
 打开IntelliJ IDEA，运行src/editor.TinyEditor类，  
 点击工具栏按钮"Open Longa Source",选择samples下的 HelloWorld.lga，  
-点击"Complie Run Longa"，IntelliJ IDEA的输出窗口会运行输出"Hello World...".  
+点击"Compile Run Longa"，IntelliJ IDEA的输出窗口会运行输出"Hello World...".  
 
 ## 例子说明
 目录samples下有三个例子  
@@ -42,8 +51,10 @@ void sql_table_WebSite()
 
         /* 向表中插入测试数据 ( insert demo data into table 'websites' ) */
         insert into tbWebSite values ["1", "Google", "https://www.google.cm/", "1", "USA"] ;
-        /* 运行select查询语句 ( ececute sql  SELECT ) */
-        CachedRowSetImpl rs2 = select "*" from tbWebSite;
+        /* 运行select查询语句 ( ececute sql  SELECT ) 
+         * 此处是执行语句 SELECT * FROM ...,结果是CachedRowSetImpl类型
+         */
+        CachedRowSetImpl rs2 = select "*" from tbWebSite; 
         DbDataHelper.dump(System.out,rs2); //显示查询结果
 }
 ```
