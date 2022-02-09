@@ -1,0 +1,8 @@
+//HelloWorld.lga
+package samples;
+/* 最简单的HelloWorld */
+ class HelloWorld {
+      void main() {
+        System.out.println("Hello World...");
+    }
+}

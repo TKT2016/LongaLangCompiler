@@ -17,22 +17,21 @@ class GUIDSLTest {
          loginWindow();
        //  frame1();
      }
-
+    /* 创建登录表单 */
     void loginWindow()
     {
         Font font1 = new Font("Georgia", Font.PLAIN, 16);
-        JFrame jframe =
-        frame
-            title "Login Window"
-            size 350 200
-            component (
-                    panel noneLayout
-                    component (label "User:" bounds 10 20 80 25 font font1)
-                        component (textField bounds 100 20 165 25)
-                        component (label "Password:" bounds 10 50 80 25)
-                        component (textField bounds 100 50 165 25)
-                        component (button "Login" bounds 90 90 80 25)
-            )
+        JFrame jframe = frame
+                title "Login Window"
+                size 350 200
+                component (
+                        panel noneLayout
+                            component (label "User:" bounds 10 20 80 25 font font1)
+                            component (textField bounds 100 20 165 25)
+                            component (label "Password:" bounds 10 50 80 25)
+                            component (textField bounds 100 50 165 25)
+                            component (button "Login" bounds 90 90 80 25)
+                )
         ;
         System.out.println(jframe.getTitle());
     }

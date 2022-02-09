@@ -57,7 +57,6 @@ public class HeadTypeMaker {
     {
         topMakeModel.declVarSymbol = new DeclVarSymbol(topMakeModel.localVarName , null, VarKind.chainVar, typeChainTree.javaClassSymbol);
         BlockFrame blockFrame = (BlockFrame) context.frame;
-        //blockFrame.chainVars.put( varSymbol.name,varSymbol);
         blockFrame.addVar(topMakeModel.declVarSymbol);
     }
 
@@ -71,7 +70,6 @@ public class HeadTypeMaker {
         jcNewClass.constructorSymbol = constrcutor;
         topMakeModel.jcNewClass =jcNewClass;
     }
-
 
     /**
      *  expr  select_chain select_0 = new select_chain()

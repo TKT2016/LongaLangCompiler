@@ -11,14 +11,12 @@ import tools.runs.ClassRunArg;
 import tools.runs.ClassRuner;
 import longac.symbols.DeclClassSymbol;
 import longac.symbols.ProjectSymbol;
-import org.apache.commons.cli.*;
-
+//import org.apache.commons.cli.*;
 import java.io.IOException;
-
 
 public class MainCompiler {
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         CommandLineParser parser = new BasicParser();
         Options options = new Options();
 
@@ -51,7 +49,7 @@ public class MainCompiler {
         String [] input_files = {inputFile};
         SourceFilesCompiler compileFiles = new SourceFilesCompiler();
         compileFiles.compile(input_files);
-    }
+    }*/
 
     public static void compileRun(String inputFile,boolean checkBytes)
     {
@@ -98,7 +96,7 @@ public class MainCompiler {
             JavaSourceReader reader = new JavaSourceReader(file);
             String code = reader.readFileContent();
             SourceLog log = new SourceLog(context, file,code);
-           // Log fileLog = new Log(context,diagnosticSource);
+
             Tokenizer tokenizer = new Tokenizer(log, code);
             while (true)
             {

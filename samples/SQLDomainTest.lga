@@ -1,6 +1,7 @@
 //SQLDomainTest.lga
 package samples;
 
+/* longa特有的语法 import chain */
 import chain longa.domains.sql.connection_chain;
 import chain longa.domains.sql.insert_chain;
 import chain longa.domains.sql.select_chain;
@@ -17,14 +18,14 @@ import static longa.domains.sql.models.DataTypeKind.*;
 import com.sun.rowset.CachedRowSetImpl;
 
 class SQLDomainTest {
-
+    /* 把演示的数据库三个表定义在类的字段中 */
     String tbWebSite="websites";
     String tbstudent ="student";
     String tbcourse ="course";
 
      void main() {
          System.out.println("begin access mysql");
-         // connection mysql
+         // 连接mysql数据库,数据库名称testdb (connection mysql ,database testdb)
          connection "localhost" port 3306 use "testdb" user "root" password "123456" ;
 
          /* error call connections*/
@@ -50,7 +51,7 @@ class SQLDomainTest {
 
      void sql_join()
      {
-         //select join sql
+         //joinc查询学生表( select join sql )
          CachedRowSetImpl rs1 =
          select "A.*,B.*,C.*"
          from tbstudent "A"
@@ -59,31 +60,36 @@ class SQLDomainTest {
          where "B.alexa > 1"
          orderby  "A.name";
 
-         DbDataHelper.dump(System.out,rs1);
+         DbDataHelper.dump(System.out,rs1);//显示查询结果,这是普通的java语句
      }
 
      void sql_table_WebSite()
      {
-         //  drop table
+         /*
+          删除表websites如果它存在(drop table 'websites')
+          也可以用 drop table tbWebSite,但是如果没有表websites会运行出错
+          */
          drop table tbWebSite ifExists;
-         // create table
+
+         /* 创建表websites (create table 'websites') */
          create table tbWebSite [
              column "id" dataType integer NotNULL ,
-             column "name" dataType varchar 255 NotNULL comment "站点名称",
+             column "name" dataType varchar 255 NotNULL comment "站点名称", //定义列,包括名称、数据类型、长度、备注
              column "url" dataType varchar 255 NotNULL,
              column "alexa" dataType integer NULL  comment "Alexa 排名",
              column "country"dataType varchar 255 NotNULL comment "国家",
          ];
 
-         //insert
+         /* 向表中插入测试数据 ( insert demo data into table 'websites' ) */
          insert into tbWebSite values ["1", "Google", "https://www.google.cm/", "1", "USA"] ;
          insert into tbWebSite values ["2", "淘宝", "https://www.taobao.com/", "13", "CN"];
          insert into tbWebSite values ["3", "微博", "http://weibo.com/", "20", "CN"];
          insert into tbWebSite values ["4", "Facebook", "https://www.facebook.com/", "3", "USA"];
 
+         /* 运行select查询语句 ( ececute sql  SELECT ) */
          CachedRowSetImpl rs2 = select "*" from tbWebSite;
 
-         DbDataHelper.dump(System.out,rs2);
+         DbDataHelper.dump(System.out,rs2); //显示查询结果
      }
 
     void sql_table_student()

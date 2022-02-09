@@ -53,7 +53,6 @@ public class TinyEditor extends JFrame implements ActionListener,DocumentListene
         btnRun2 = new JButton("Compile Run Longa ");
         btnRun2.addActionListener(this);
 
-
         tb.addSeparator();
         tb.add(btnOpen);
 
@@ -452,13 +451,22 @@ public class TinyEditor extends JFrame implements ActionListener,DocumentListene
                     "Longa 语言编译运行简单工具", JOptionPane.INFORMATION_MESSAGE);
         }
     }
-
+    JFileChooser fileChooser ;
     private void openChooserFile() {
-        JFileChooser fileChooser = new JFileChooser(FileUtil.getCurrentPath() + "/test");
+        //System.out.println("current:"+FileUtil.getCurrentPath() + "/samples");
+        if(fileChooser==null)
+        {
+            fileChooser = new JFileChooser(FileUtil.getCurrentPath() + "/samples");
+            if (fileChooser.getSelectedFile() != null)
+                fileChooser.setCurrentDirectory(fileChooser.getSelectedFile());
+            else
+                fileChooser.setCurrentDirectory(new File("./samples"));
+        }
+        /*JFileChooser fileChooser = new JFileChooser(FileUtil.getCurrentPath() + "/samples");
         if (fileChooser.getSelectedFile() != null)
             fileChooser.setCurrentDirectory(fileChooser.getSelectedFile());
         else
-            fileChooser.setCurrentDirectory(new File("./samples"));
+            fileChooser.setCurrentDirectory(new File("./samples"));*/
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
         fileChooser.setDialogTitle("打开文件");
         int result = fileChooser.showOpenDialog(this);

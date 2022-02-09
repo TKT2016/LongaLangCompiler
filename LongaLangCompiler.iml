@@ -13,7 +13,6 @@
     <orderEntry type="library" name="Maven: org.ow2.asm:asm-tree:9.1" level="project" />
     <orderEntry type="library" name="Maven: org.ow2.asm:asm-util:9.1" level="project" />
     <orderEntry type="library" name="Maven: org.ow2.asm:asm-analysis:9.1" level="project" />
-    <orderEntry type="library" name="Maven: commons-cli:commons-cli:1.2" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.27" level="project" />
     <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.11.4" level="project" />
   </component>
