@@ -119,7 +119,7 @@ public class DeclClassSymbol extends TypeSymbol implements SymbolFrame
     }
 
     @Override
-    public boolean equalsref(TypeSymbol a)
+    public boolean equalType(TypeSymbol a)
     {
         if(this.equals(a)) return true;
         if(!(a instanceof  DeclClassSymbol))

@@ -136,18 +136,14 @@ public class JavaClassSymbol extends TypeSymbol {
     @Override
     public boolean isAssignableFrom(TypeSymbol typeSymbolSub)
     {
-        if(this.equals(typeSymbolSub))return true;
         if(typeSymbolSub instanceof JavaClassSymbol)
         {
             Class<?> sub = ((JavaClassSymbol) typeSymbolSub).clazz;
-            boolean b=   this.clazz.isAssignableFrom(sub);
-            return b;
+            return  ( this.clazz.isAssignableFrom(sub));
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
+
 
     @Override
     public String getSignature(boolean addL)
@@ -268,7 +264,7 @@ public class JavaClassSymbol extends TypeSymbol {
     }
 
     @Override
-    public boolean equalsref(TypeSymbol a)
+    public boolean equalType(TypeSymbol a)
     {
         if(this.equals(a)) return true;
         if(!(a instanceof  JavaClassSymbol))

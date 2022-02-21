@@ -29,7 +29,7 @@ public class StringConcatEmit {
     public void append(JCExpression expression, CodeEmit emitor, EmitContext arg)
     {
         emitor.emitExpr(expression,arg);
-        Symbol symbol = expression.getSymbol();
+        Symbol symbol = expression.getSymbol().getTypeSymbol();
         if(SymbolUtil.isString(symbol))
             mv.visitMethodInsn(INVOKEVIRTUAL, "java/lang/StringBuilder", "append", "(Ljava/lang/String;)Ljava/lang/StringBuilder;", false);
         /*else if(SymbolUtil.isBoolean(symbol))

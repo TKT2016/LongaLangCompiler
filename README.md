@@ -1,6 +1,27 @@
 # LongaLangCompiler
-Longa 是我发明的一种长链表达式调用技术。  
-Longa项目是我在自己开发的简化版java语言的编译器上的基础上插入Longa编译技术。   
+Longa 是我发明的一种长链表达式调用技术，可以把接近mysql脚本的程序编译成Java字节码。  
+Longa 程序展示
+
+
+用root账号和密码连接mysql数据
+```java
+       connection "localhost" port 3306 use "testdb" user "root" password "123456" ;
+```
+
+查询mysql 学生表并显示结果
+```java
+        CachedRowSetImpl rs2 = select "*" from "student"; 
+        DbDataHelper.dump(System.out,rs2);
+```
+
+删除mysql学生表如果它存在
+```java
+        drop table tbWebSite "student";
+```
+
+Longa项目是我在自己开发的简化版java语言的编译器上的基础上插入Longa编译技术,
+可以把源码编译成字节码文件并成功运行。
+
 
 ## Longa优点
 可以很好地模拟SQL语句  
@@ -31,7 +52,7 @@ HelloWorld.lga 最简单的HelloWorld,和java很接近
 GUIDSLTest.lga 演示Longa编写java swing图形
 SQLDomainTest.lga 演示怎样用Longa连接mysql,删除创建查询表,修改正确的数据库连接信息可以实际运行
 
-![](https://raw.githubusercontent.com/TKT2016/LongaLangCompiler/main/resources/SQLDemo.png)
+![](resources/SQLDemo.png)
 
 删除创建查询表
 ```java
@@ -58,7 +79,7 @@ void sql_table_WebSite()
         DbDataHelper.dump(System.out,rs2); //显示查询结果
 }
 ```
-创建登录表单
+用swing创建登录窗口
 ```java
     void loginWindow()
     {
@@ -77,6 +98,9 @@ void sql_table_WebSite()
         ;
     }
 ```
-
+ 
 PhysicsPapers目录下是我写的一些物理学观点，与本项目完全无关，放在此是为了传播本人观点。  
 
+<b>希望能得到您的支持</b>  
+<img src="./收款码/支付宝收款码.jpg" width = "300" />
+<img src="./收款码/微信收款码.jpg" width = "300"  />

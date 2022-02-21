@@ -615,7 +615,7 @@ public class StmtExpAttrTranslator extends TreeTranslator<ExprVisitContext>
         else if(!leftType.isAssignableFrom(rightType))
         {
             right.error("类型不一致,无法赋值");
-            leftType.isAssignableFrom(rightType);
+            //leftType.isAssignableFrom(rightType);
             return false;
         }
         return true;

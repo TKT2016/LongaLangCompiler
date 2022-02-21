@@ -56,7 +56,7 @@ class SQLDomainTest {
          select "A.*,B.*,C.*"
          from tbstudent "A"
              left join tbWebSite "B" on "A.pageid = B.id"
-             left join tbcourse "C" on "A.courseid = C.id"
+             right join tbcourse "C" on "A.courseid = C.id"
          where "B.alexa > 1"
          orderby  "A.name";
 

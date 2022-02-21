@@ -10,8 +10,8 @@ public class MainTest {
 
     public static void main(String[] args)
     {
-        //testone("SQLDomainTest");
-        testone("GUIDSLTest");
+        testone("SQLDomainTest");
+        //testone("GUIDSLTest");
     }
 
     static void testBat(int index)

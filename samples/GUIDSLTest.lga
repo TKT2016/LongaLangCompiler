@@ -17,6 +17,7 @@ class GUIDSLTest {
          loginWindow();
        //  frame1();
      }
+
     /* 创建登录表单 */
     void loginWindow()
     {

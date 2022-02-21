@@ -34,7 +34,7 @@ public abstract class TypeSymbol extends Symbol {
 
     public abstract ArrayList<Symbol> findMembers(String name,boolean isStatic);
 
-    public abstract boolean equalsref(TypeSymbol a);
+    public abstract boolean equalType(TypeSymbol a);
 
     public abstract int match(TypeSymbol another);
 

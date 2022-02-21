@@ -75,7 +75,7 @@ public class JavaArrayTypeSymbol extends TypeSymbol {
     }
 
     @Override
-    public boolean equalsref(TypeSymbol a)
+    public boolean equalType(TypeSymbol a)
     {
         if(this.equals(a)) return true;
         if(!(a instanceof JavaArrayTypeSymbol))

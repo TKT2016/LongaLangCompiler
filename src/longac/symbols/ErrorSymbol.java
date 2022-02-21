@@ -23,7 +23,7 @@ public class ErrorSymbol extends TypeSymbol
     }
 
     @Override
-    public boolean equalsref(TypeSymbol a)
+    public boolean equalType(TypeSymbol a)
     {
         return (a instanceof ErrorSymbol);
     }

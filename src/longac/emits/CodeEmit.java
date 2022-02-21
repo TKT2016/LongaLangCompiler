@@ -770,8 +770,8 @@ public class CodeEmit extends TreeScanner<EmitContext>
         emitLineNumber(mv,statement.line);
         statement.scan(this,arg);
     }
-
-    public void emitExpr(JCExpression jcExpression, EmitContext arg) {
+/*
+    public void emitExpr2(JCExpression jcExpression, EmitContext arg) {
         if (jcExpression == null) return;
         jcExpression.scan(this, arg);
         MethodVisitor mv = arg.mv;
@@ -780,8 +780,8 @@ public class CodeEmit extends TreeScanner<EmitContext>
         TypeSymbol toType = jcExpression.requireConvertTo;
         TypeSymbol curType = jcExpression.getTypeSymbol();
         if(curType.equals(toType)) return;
-        if(curType.equalsref(toType)) return;
-        if(toType.isAssignableFrom(curType)) return;
+        if(curType.equalType(toType)) return;
+        if(!toType.isAssignableFrom(curType)) return;
 
         if ((SymbolUtil.isObject(toType) && (curType instanceof JavaArrayTypeSymbol)))
         {
@@ -805,20 +805,53 @@ public class CodeEmit extends TreeScanner<EmitContext>
             if (BoxEmit.unbox(mv, toType, curType))
                 return;
         }
-/*
-        if(SymbolUtil.isPrimitive(toType) && SymbolUtil.isPrimitive(curType))
+
+        Assert.error();
+    }
+*/
+
+    /** 生成表达式 */
+    public void emitExpr(JCExpression jcExpression, EmitContext arg) {
+        if (jcExpression == null) return;
+        jcExpression.scan(this, arg);
+        if (jcExpression.requireConvertTo == null) return;
+        if (!(jcExpression.requireConvertTo instanceof JavaClassSymbol)) return;
+        emitBoxOrUnBox(jcExpression,arg);
+    }
+
+    private void emitBoxOrUnBox(JCExpression jcExpression, EmitContext arg)
+    {
+        MethodVisitor mv = arg.mv;
+        TypeSymbol toType = jcExpression.requireConvertTo;
+        TypeSymbol curType = jcExpression.getTypeSymbol();
+
+        if(curType.equals(toType)) return;
+        if(curType.equalType(toType)) return;
+        if(toType.isAssignableFrom(curType))
+            return;
+
+        if ((SymbolUtil.isObject(toType) && (curType instanceof JavaArrayTypeSymbol)))
         {
-            if(SymbolUtil.isDouble(toType) && SymbolUtil.isInt(curType) )
-            {
-                mv.visitInsn(I2D);
+            return;
+        }
+
+        if ((SymbolUtil.isObject(toType) && SymbolUtil.isPrimitive(curType))) //装箱
+        {
+            if (BoxEmit.box(mv, toType, curType))
                 return;
-            }
-            if(SymbolUtil.isInt(toType) && SymbolUtil.isDouble(curType) )
-            {
-                mv.visitInsn(D2I);
+        }
+
+        if (SymbolUtil.isPrimitiveBox(toType) && SymbolUtil.isPrimitive(curType)) //装箱
+        {
+            if (BoxEmit.box(mv, toType, curType))
                 return;
-            }
-        }*/
+        }
+
+        if (SymbolUtil.isPrimitive(toType) && SymbolUtil.isPrimitiveBox(curType)) //拆箱
+        {
+            if (BoxEmit.unbox(mv, toType, curType))
+                return;
+        }
 
         Assert.error();
     }
