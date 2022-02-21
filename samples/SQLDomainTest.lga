@@ -8,13 +8,11 @@ import chain longa.domains.sql.select_chain;
 import chain longa.domains.sql.create_chain;
 import chain longa.domains.sql.column_chain;
 import chain longa.domains.sql.drop_chain;
-
 import longa.domains.sql.tools.DbDataHelper;
 import longa.domains.sql.*;
 import longa.domains.sql.models.*;
 import static longa.domains.sql.models.JoinKind.*;
 import static longa.domains.sql.models.DataTypeKind.*;
-
 import com.sun.rowset.CachedRowSetImpl;
 
 class SQLDomainTest {
@@ -86,9 +84,8 @@ class SQLDomainTest {
          insert into tbWebSite values ["3", "微博", "http://weibo.com/", "20", "CN"];
          insert into tbWebSite values ["4", "Facebook", "https://www.facebook.com/", "3", "USA"];
 
-         /* 运行select查询语句 ( ececute sql  SELECT ) */
+         /* 运行select查询语句 ( execute sql  SELECT ) */
          CachedRowSetImpl rs2 = select "*" from tbWebSite;
-
          DbDataHelper.dump(System.out,rs2); //显示查询结果
      }
 

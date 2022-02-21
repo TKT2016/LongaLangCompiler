@@ -46,8 +46,8 @@ public class select_chain extends SelectModel {
     }
 
     public CachedRowSetImpl __end() {
-       String sql = this.toString();
-       System.out.println(sql);
+        String sql = this.toString();
+        System.out.println(sql);
         CachedRowSetImpl cachedRowSet = MySQLHelper.executeQuery(sql);
         return cachedRowSet;
     }
