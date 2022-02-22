@@ -1,5 +1,5 @@
 # LongaLangCompiler
-Longa 是我发明的一种长链表达式调用技术，可以把接近mysql脚本的程序编译成Java字节码。  
+Longa长链表达式编译技术 是我发明的一种长链表达式调用技术，可以把接近mysql脚本的程序编译成Java字节码。  
 Longa 程序展示
 
 
