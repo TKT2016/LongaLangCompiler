@@ -1,22 +1,22 @@
 # LongaLangCompiler
-Longa长链表达式编译技术 是我发明的一种长链表达式调用技术，可以把接近mysql脚本的程序编译成Java字节码。  
+Longa长链表达式编译技术 是我发明的一种长链表达式调用技术，可以把接近sql脚本的程序编译成Java字节码。  
 Longa 程序展示
 
 
 用root账号和密码连接mysql数据
 ```java
-       connection "localhost" port 3306 use "testdb" user "root" password "123456" ;
+connection "localhost" port 3306 use "testdb" user "root" password "123456" ;
 ```
 
 查询mysql 学生表并显示结果
 ```java
-        CachedRowSetImpl rs2 = select "*" from "student"; 
-        DbDataHelper.dump(System.out,rs2);
+CachedRowSetImpl rs2 = select "*" from "student"; 
+DbDataHelper.dump(System.out,rs2);
 ```
 
 删除mysql学生表如果它存在
 ```java
-        drop table tbWebSite "student";
+drop table "student";
 ```
 
 Longa项目是我在自己开发的简化版java语言的编译器上的基础上插入Longa编译技术,
@@ -28,7 +28,7 @@ Longa项目是我在自己开发的简化版java语言的编译器上的基础�
 可以作为通用DSL引擎  
 可以模拟自然语言编程  
 
-目前实现的SQL方面距离标准的SQL脚本已经非常解决，在当前的市面上找不到如此接近的。  
+目前实现的SQL方面距离标准的SQL脚本已经非常接近，在当前的市面上找不到如此接近的。  
 未来大家很可能在java程序直接编写运行SQL语句，不需要拼接字符串了；同时大家可以很方便的开发自己的DSL语言。
 
 我正在推广这一个神奇的技术，希望大家这样支持我: 
