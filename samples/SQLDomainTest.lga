@@ -23,7 +23,7 @@ class SQLDomainTest {
 
      void main() {
          System.out.println("begin access mysql");
-         // 连接mysql数据库,数据库名称testdb (connection mysql ,database testdb)
+         // 连接mysql 服务器 localhost:3306， 数据库testdb，用户名root，密码123456  (connection mysql ,database testdb)
          connection "localhost" port 3306 use "testdb" user "root" password "123456" ;
 
          /* error call connections*/
@@ -83,7 +83,6 @@ class SQLDomainTest {
          insert into tbWebSite values ["2", "淘宝", "https://www.taobao.com/", "13", "CN"];
          insert into tbWebSite values ["3", "微博", "http://weibo.com/", "20", "CN"];
          insert into tbWebSite values ["4", "Facebook", "https://www.facebook.com/", "3", "USA"];
-
          /* 运行select查询语句 ( execute sql  SELECT ) */
          CachedRowSetImpl rs2 = select "*" from tbWebSite;
          DbDataHelper.dump(System.out,rs2); //显示查询结果
